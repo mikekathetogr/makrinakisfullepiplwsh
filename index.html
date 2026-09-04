@@ -6,20 +6,23 @@
   <title>Δωρεάν 3D Μελέτη & Κοστολόγηση Επίπλων | ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ OE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://i0.wp.com/katheto.gr/wp-content/uploads/2024/10/cropped-katheto.gr_logo.webp?fit=32%2C32&ssl=1">
+  <link href="https://fonts.googleapis.com/css2?family=Brawler:wght@400;700&family=Caladea:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://files.cdn-files-a.com/uploads/10273212/400_filter_nobg_679b2c06827de.png" type="image/png">
   
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ── BRAND COLOR PALETTE (From emakrinakis.gr & HTML/Image) ── */
     :root {
-      --yellow: #FFD93D;
-      --black: #0A0A0A;
-      --dark: #111111;
-      --card: #1A1A1A;
-      --border: #2A2A2A;
-      --text: #E8E8E8;
-      --muted: #888888;
+      --brand-dark: #1b262c;        /* Header & Navigation Dark Blue/Charcoal */
+      --brand-accent: #0087e1;      /* Electric Blue Accent / CTA */
+      --brand-gold: #c5a059;        /* Warm Wood/Gold Tone */
+      --bg-black: #000000;          /* Deep Background */
+      --bg-dark-card: #12181b;      /* Dark Section Cards */
+      --bg-card: #1a2226;           /* Contrast Card Element */
+      --border-color: #2a363b;      /* Clean Dark Borders */
+      --text-white: #ffffff;        /* Primary Text */
+      --text-muted: #a0aab0;       /* Subtitles & Descriptions */
       --green: #4ade80;
       --red: #f87171;
     }
@@ -27,28 +30,24 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif !important;
-      background: #0A0A0A !important;
-      color: #E8E8E8 !important;
+      font-family: 'Brawler', 'Inter', serif !important;
+      background: var(--bg-black) !important;
+      color: var(--text-white) !important;
       line-height: 1.6 !important;
       margin: 0 !important;
       padding: 0 !important;
       overflow-x: hidden !important;
     }
     
-    html, body, #app, #root, .page-wrapper, .funnelish-page,
-    [class*="funnel"], [class*="page"], [class*="section"],
-    [class*="ghl-page"], .hl-page, div[data-page] {
-      background: #0A0A0A !important;
-      background-color: #0A0A0A !important;
+    html, body, #app, #root, .page-wrapper, [class*="page"], [class*="section"] {
+      background: var(--bg-black) !important;
+      background-color: var(--bg-black) !important;
     }
-    
-    .custom-code-element, [class*="custom-code"] {
-      width: 100% !important;
-      max-width: 100% !important;
-      padding: 0 !important;
-      margin: 0 !important;
-      background: #0A0A0A !important;
+
+    /* ── TYPOGRAPHY OVERRIDES ── */
+    h1, h2, h3, .brand-logo, .eyebrow, .cta-nav {
+      font-family: 'Oswald', sans-serif !important;
+      text-transform: uppercase;
     }
 
     /* ── NAV (BREAKOUT TO EDGES) ── */
@@ -56,181 +55,252 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 40px;
-      border-bottom: 1px solid var(--border);
+      padding: 14px 40px;
+      border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
-      background: rgba(10,10,10,0.97);
+      background: rgba(27, 38, 44, 0.97);
       backdrop-filter: blur(8px);
       z-index: 100;
       width: 100vw !important;
       margin-left: calc(-50vw + 50%) !important;
     }
-    nav .brand-logo { 
-      font-weight: 900; 
-      font-size: 1.2rem; 
-      color: #fff; 
-      text-decoration: none; 
-      letter-spacing: -0.02em;
-    }
-    nav .brand-logo span { color: var(--yellow); }
-    nav a.cta-nav {
-      background: var(--yellow);
-      color: var(--black);
-      font-weight: 700;
-      font-size: 0.82rem;
-      padding: 10px 22px;
-      border-radius: 6px;
+    nav .brand-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       text-decoration: none;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: opacity 0.2s;
-      white-space: nowrap;
     }
-    nav a.cta-nav:hover { opacity: 0.85; }
+    nav .brand-container img {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+    nav .brand-logo { 
+      font-weight: 700; 
+      font-size: 1.15rem; 
+      color: var(--text-white); 
+      letter-spacing: 0.05em;
+    }
+    nav .brand-logo span { color: var(--brand-accent); }
+    nav a.cta-nav {
+      background: var(--brand-accent);
+      color: var(--text-white);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 22px;
+      border-radius: 4px;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 135, 225, 0.3);
+    }
+    nav a.cta-nav:hover { 
+      background: #0073c3;
+      transform: translateY(-1px);
+    }
 
     /* ── PROMO BANNER ── */
     .promo-banner {
-      background: var(--yellow);
-      color: #0A0A0A;
+      background: var(--brand-gold);
+      color: var(--bg-black);
       text-align: center;
       padding: 10px 20px;
-      font-weight: 900;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
       font-size: 0.9rem;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       width: 100vw !important;
       margin-left: calc(-50vw + 50%) !important;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-color);
       position: sticky;
-      top: 65px;
+      top: 71px;
       z-index: 99;
     }
 
     /* ── HERO ── */
     .hero {
-      max-width: 860px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 32px 24px 0px;
+      padding: 40px 24px 0px;
       text-align: center;
     }
     .hero .eyebrow {
       display: inline-block;
-      background: var(--yellow);
-      color: var(--black);
+      background: rgba(0, 135, 225, 0.15);
+      border: 1px solid var(--brand-accent);
+      color: var(--brand-accent);
       font-weight: 700;
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 4px;
       margin-bottom: 24px;
     }
     .hero h1 {
-      font-size: clamp(1.6rem, 3.8vw, 2.5rem);
-      font-weight: 900;
-      line-height: 1.2;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      font-weight: 700;
+      line-height: 1.25;
       margin-bottom: 24px;
-      color: #fff;
+      color: var(--text-white);
+      letter-spacing: 0.02em;
     }
-    .hero h1 span { color: var(--yellow); }
+    .hero h1 span { color: var(--brand-accent); }
 
-    /* ── VIDEO / VSL ── */
+    /* ── VSL PLACEHOLDER ── */
     .vsl-wrap {
-      max-width: 780px;
+      max-width: 800px;
       margin: 0 auto 56px;
       padding: 0 24px;
     }
-    .vsl-container {
+    .vsl-placeholder {
       width: 100%;
       aspect-ratio: 16/9;
-      background: var(--card);
+      background: linear-gradient(135deg, #12181b 0%, #1b262c 100%);
       border-radius: 12px;
-      border: 1px solid var(--border);
-      overflow: hidden;
+      border: 2px dashed var(--brand-accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .vsl-placeholder .play-btn {
+      width: 70px;
+      height: 70px;
+      background: var(--brand-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: 0 0 20px rgba(0, 135, 225, 0.6);
+    }
+    .vsl-placeholder .play-btn::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12px 0 12px 22px;
+      border-color: transparent transparent transparent #ffffff;
+      margin-left: 4px;
+    }
+    .vsl-placeholder h3 {
+      font-size: 1.2rem;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+    .vsl-placeholder p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-family: 'Caladea', serif;
     }
 
     /* ── SECTION WRAPPER ── */
     section { padding: 72px 24px; }
-    .container { max-width: 860px; margin: 0 auto; }
+    .container { max-width: 880px; margin: 0 auto; }
     .section-label {
-      font-size: 0.75rem;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
       font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--yellow);
+      color: var(--brand-accent);
       margin-bottom: 12px;
     }
     h2 {
       font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      font-weight: 900;
-      color: #fff;
+      font-weight: 700;
+      color: var(--text-white);
       line-height: 1.2;
       margin-bottom: 20px;
+      letter-spacing: 0.02em;
     }
-    h2 span { color: var(--yellow); }
-    p.body-text { color: var(--muted); font-size: 1.05rem; margin-bottom: 16px; }
+    h2 span { color: var(--brand-accent); }
+    p.body-text { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 16px; font-family: 'Caladea', serif; }
 
     /* ── PAIN SECTION ── */
-    .pain-section { background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .pain-section { 
+      background: var(--bg-dark-card); 
+      border-top: 1px solid var(--border-color); 
+      border-bottom: 1px solid var(--border-color); 
+    }
     .pain-list { list-style: none; margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
     .pain-list li {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      background: var(--card);
-      border: 1px solid var(--border);
+      gap: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: 8px;
-      padding: 18px 20px;
-      font-size: 1rem;
-      color: var(--text);
+      padding: 20px 22px;
+      font-size: 0.98rem;
+      color: var(--text-white);
     }
-    .pain-list li .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .pain-list li .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
 
     /* ── DELIVERABLES ── */
     .deliverables-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       margin-top: 36px;
     }
     .del-card {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-color);
       border-radius: 10px;
       padding: 28px 24px;
+      position: relative;
     }
     .del-card .num {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--yellow);
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--brand-accent);
       line-height: 1;
       margin-bottom: 10px;
     }
-    .del-value { font-size: 0.75rem; font-weight: 700; color: var(--yellow); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 6px; }
-    .del-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .del-card p { font-size: 0.9rem; color: var(--muted); }
+    .del-value { 
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem; 
+      font-weight: 700; 
+      color: var(--brand-gold); 
+      letter-spacing: 0.08em; 
+      text-transform: uppercase; 
+      margin-bottom: 8px; 
+    }
+    .del-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-white); margin-bottom: 10px; }
+    .del-card p { font-size: 0.92rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
     /* ── BONUS ── */
     .bonus-box {
-      background: linear-gradient(135deg, #1a1a00 0%, #1A1A1A 100%);
-      border: 2px solid var(--yellow);
+      background: linear-gradient(135deg, #1b262c 0%, #12181b 100%);
+      border: 2px solid var(--brand-accent);
       border-radius: 12px;
       padding: 36px 32px;
       margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0, 135, 225, 0.15);
     }
-    .bonus-box h3 { font-size: 1.3rem; font-weight: 900; color: #fff; margin-bottom: 12px; }
-    .bonus-box p { font-size: 0.95rem; color: var(--muted); margin-bottom: 8px; }
+    .bonus-box h3 { font-size: 1.3rem; font-weight: 700; color: var(--text-white); margin-bottom: 12px; }
+    .bonus-box p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 8px; font-family: 'Caladea', serif; }
     .bonus-box .results { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; }
     .bonus-box .result-pill {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--bg-black);
+      border: 1px solid var(--border-color);
       border-radius: 6px;
       padding: 8px 14px;
       font-size: 0.85rem;
-      color: var(--yellow);
+      color: var(--brand-accent);
       font-weight: 600;
+      font-family: 'Inter', sans-serif;
     }
 
     /* ── TIMELINE ── */
@@ -243,29 +313,35 @@
       top: 44px;
       bottom: -24px;
       width: 2px;
-      background: var(--border);
+      background: var(--border-color);
     }
     .tl-dot {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: var(--yellow);
-      color: var(--black);
-      font-weight: 900;
-      font-size: 0.85rem;
+      background: var(--brand-accent);
+      color: var(--text-white);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
       margin-top: 2px;
       z-index: 1;
+      box-shadow: 0 0 12px rgba(0, 135, 225, 0.4);
     }
     .tl-content { padding-bottom: 32px; }
-    .tl-content h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
-    .tl-content p { font-size: 0.9rem; color: var(--muted); }
+    .tl-content h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-white); margin-bottom: 4px; }
+    .tl-content p { font-size: 0.92rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
     /* ── WHY US ── */
-    .why-section { background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .why-section { 
+      background: var(--bg-dark-card); 
+      border-top: 1px solid var(--border-color); 
+      border-bottom: 1px solid var(--border-color); 
+    }
     .why-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -273,14 +349,14 @@
       margin-top: 36px;
     }
     .why-card {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
       border-radius: 10px;
       padding: 24px 20px;
     }
     .why-card .icon { font-size: 1.8rem; margin-bottom: 12px; }
-    .why-card h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .why-card p { font-size: 0.88rem; color: var(--muted); }
+    .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-white); margin-bottom: 8px; }
+    .why-card p { font-size: 0.88rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
     /* ── SOCIAL PROOF ── */
     .proof-grid {
@@ -290,17 +366,17 @@
       margin-top: 36px;
     }
     .proof-card {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-color);
       border-radius: 10px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
     }
     .proof-card-content { padding: 24px 20px; }
-    .proof-card .quote { font-size: 0.95rem; color: var(--text); font-style: italic; margin-bottom: 16px; line-height: 1.6; }
-    .proof-card .author { font-size: 0.82rem; color: var(--yellow); font-weight: 700; }
-    .proof-card .company { font-size: 0.8rem; color: var(--muted); }
+    .proof-card .quote { font-size: 0.95rem; color: var(--text-white); font-style: italic; margin-bottom: 16px; line-height: 1.6; font-family: 'Caladea', serif; }
+    .proof-card .author { font-size: 0.85rem; color: var(--brand-accent); font-weight: 700; font-family: 'Inter', sans-serif; }
+    .proof-card .company { font-size: 0.8rem; color: var(--text-muted); font-family: 'Inter', sans-serif; }
 
     /* ── WHY START HERE ── */
     .why-start-grid {
@@ -310,20 +386,21 @@
       margin-top: 36px;
     }
     .why-start-card {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-color);
       border-radius: 10px;
       padding: 28px 24px;
     }
     .ws-num {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--yellow);
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--brand-accent);
       line-height: 1;
       margin-bottom: 10px;
     }
-    .why-start-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .why-start-card p { font-size: 0.9rem; color: var(--muted); }
+    .why-start-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-white); margin-bottom: 8px; }
+    .why-start-card p { font-size: 0.9rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
     /* ── IS / IS NOT ── */
     .is-isnot-grid {
@@ -334,125 +411,160 @@
     }
     @media (max-width: 600px) { .is-isnot-grid { grid-template-columns: 1fr; } }
     .is-col, .isnot-col {
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-color);
       border-radius: 10px;
       padding: 28px 24px;
     }
     .is-col { border-top: 3px solid var(--green); }
     .isnot-col { border-top: 3px solid var(--red); }
-    .is-col h3 { color: var(--green); font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
-    .isnot-col h3 { color: var(--red); font-size: 1rem; font-weight: 700; margin-bottom: 16px; }
-    .is-col ul, .isnot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .is-col ul li, .isnot-col ul li { font-size: 0.9rem; color: var(--text); padding-left: 4px; }
+    .is-col h3 { color: var(--green); font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+    .isnot-col h3 { color: var(--red); font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+    .is-col ul, .isnot-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .is-col ul li, .isnot-col ul li { font-size: 0.92rem; color: var(--text-white); padding-left: 4px; font-family: 'Caladea', serif; }
 
     /* ── PORTFOLIO ── */
-    .portfolio-section { padding: 80px 0; background: var(--black); }
+    .portfolio-section { padding: 80px 0; background: var(--bg-black); }
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat( auto-fit, minmax(160px, 1fr) );
+      grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
       gap: 16px;
     }
     .portfolio-item {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       text-decoration: none;
-      color: var(--text);
+      color: var(--text-white);
     }
     .portfolio-thumb {
       width: 100%;
       aspect-ratio: 4/3;
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-color);
       border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      font-size: 2rem;
+      font-size: 2.2rem;
+      transition: border-color 0.2s;
+    }
+    .portfolio-item:hover .portfolio-thumb {
+      border-color: var(--brand-accent);
     }
     .portfolio-title {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      color: var(--text);
+      color: var(--text-white);
       text-align: center;
       line-height: 1.3;
+      font-family: 'Inter', sans-serif;
     }
 
     /* ── GUARANTEE ── */
-    .guarantee-section { text-align: center; background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .guarantee-section { 
+      text-align: center; 
+      background: var(--bg-dark-card); 
+      border-top: 1px solid var(--border-color); 
+      border-bottom: 1px solid var(--border-color); 
+    }
     .guarantee-box {
-      max-width: 600px;
+      max-width: 640px;
       margin: 0 auto;
-      background: var(--card);
-      border: 2px solid var(--yellow);
+      background: var(--bg-card);
+      border: 2px solid var(--brand-accent);
       border-radius: 16px;
       padding: 48px 36px;
+      box-shadow: 0 10px 30px rgba(0, 135, 225, 0.1);
     }
     .guarantee-box .shield { font-size: 3.5rem; margin-bottom: 16px; }
     .guarantee-box h2 { font-size: 1.8rem; margin-bottom: 16px; }
-    .guarantee-box p { font-size: 1rem; color: var(--muted); }
+    .guarantee-box p { font-size: 1rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
     /* ── PRICING / CTA ── */
     .pricing-section { text-align: center; }
     .price-card {
       max-width: 520px;
       margin: 40px auto 0;
-      background: var(--card);
-      border: 1px solid var(--border);
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-color);
       border-radius: 16px;
       padding: 48px 36px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
-    .price-card .price { font-size: 3.8rem; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 6px; }
-    .price-card .price-note { font-size: 0.85rem; color: var(--muted); margin-bottom: 32px; }
+    .price-card .price { 
+      font-family: 'Oswald', sans-serif;
+      font-size: 4rem; 
+      font-weight: 700; 
+      color: var(--brand-accent); 
+      line-height: 1; 
+      margin-bottom: 6px; 
+    }
+    .price-card .price-note { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 32px; font-family: 'Inter', sans-serif; }
     .price-card ul {
       list-style: none;
       text-align: left;
       margin-bottom: 36px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
     .price-card ul li {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       font-size: 0.95rem;
-      color: var(--text);
+      color: var(--text-white);
+      font-family: 'Caladea', serif;
     }
-    .price-card ul li::before { content: '✓'; color: var(--yellow); font-weight: 900; flex-shrink: 0; }
+    .price-card ul li::before { 
+      content: '✓'; 
+      color: var(--brand-accent); 
+      font-weight: 900; 
+      font-size: 1.1rem;
+      flex-shrink: 0; 
+    }
     .btn-main {
       display: block;
       width: 100%;
-      background: var(--yellow);
-      color: var(--black);
-      font-weight: 900;
-      font-size: 1.05rem;
+      background: var(--brand-accent);
+      color: var(--text-white);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
       padding: 18px 24px;
-      border-radius: 8px;
+      border-radius: 6px;
       text-decoration: none;
       text-align: center;
-      letter-spacing: 0.02em;
-      transition: opacity 0.2s, transform 0.2s;
+      letter-spacing: 0.05em;
+      transition: all 0.2s ease;
       margin-bottom: 16px;
+      box-shadow: 0 6px 20px rgba(0, 135, 225, 0.4);
     }
-    .btn-main:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-main:hover { 
+      background: #0073c3; 
+      transform: translateY(-2px); 
+    }
 
     /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 40px 24px;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
       font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
     }
-    footer a { color: var(--yellow); text-decoration: none; }
+    footer img { height: 44px; margin-bottom: 12px; object-fit: contain; }
+    footer a { color: var(--brand-accent); text-decoration: none; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      nav { padding: 14px 20px; }
-      .promo-banner { font-size: 0.78rem; padding: 8px 12px; top: 58px; }
+      nav { padding: 12px 20px; }
+      nav .brand-logo { font-size: 1rem; }
+      nav .brand-container img { height: 34px; }
+      .promo-banner { font-size: 0.78rem; padding: 8px 12px; top: 62px; }
       .hero { padding: 24px 20px 0px; }
       .hero h1 { margin-bottom: 24px; }
       section { padding: 48px 20px; }
@@ -464,13 +576,16 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="brand-logo">ΑΦΕΣ <span>ΜΑΚΡΥΝΑΚΗ</span> OE</a>
+    <a href="#" class="brand-container">
+      <img src="https://files.cdn-files-a.com/uploads/10273212/400_filter_nobg_679b2c06827de.png" alt="Makrinakis Woodconstructions Logo">
+      <span class="brand-logo">MAKRINAKIS <span>WOODCONSTRUCTIONS</span></span>
+    </a>
     <a href="#cta" class="cta-nav">ΔΩΡΕΑΝ 3D ΜΕΛΕΤΗ</a>
   </nav>
 
   <!-- PROMO BANNER -->
   <div class="promo-banner">
-    ⚡ ΜΟΝΟ ΓΙΑ ΑΥΤΟΝ ΤΟΝ ΜΗΝΑ: ΔΩΡΕΑΝ 3D ΜΕΛΕΤΗ & ΚΟΣΤΟΛΟΓΗΣΗ ΧΩΡΙΣ ΚΑΜΙΑ ΔΕΣΜΕΥΣΗ! (ΠΕΡΙΟΡΙΣΜΕΝΑ ΡΑΝΤΕΒΟΥ)
+    ⚡ ΜΟΝΟ ΓΙΑ ΑΥΤΟΝ ΤΟΝ ΜΗΝΑ: ΔΩΡΕΑΝ 3D ΜΕΛΕΤΗ & ΚΟΣТОΛΟΓΗΣΗ ΧΩΡΙΣ ΚΑΜΙΑ ΔΕΣΜΕΥΣΗ! (ΠΕΡΙΟΡΙΣΜΕΝΑ ΡΑΝΤΕΒΟΥ)
   </div>
 
   <!-- HERO -->
@@ -481,15 +596,16 @@
     </div>
   </section>
 
-  <!-- VSL / VIDEO SECTION -->
+  <!-- VSL PLACEHOLDER SECTION -->
   <div class="vsl-wrap">
-    <div class="vsl-container">
-      <iframe src="https://www.youtube.com/embed/IyXf96EkYJo?si=7z_SiVVikVfQd5EO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width:100%;height:100%;display:block;">
-      </iframe>
+    <div class="vsl-placeholder">
+      <div class="play-btn"></div>
+      <h3>ΒΙΝΤΕΟ ΠΑΡΟΥΣΙΑΣΗΣ ΥΠΗΡΕΣΙΑΣ (VSL)</h3>
+      <p>Δες πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ σχεδιάζει και κατασκευάζει τα έπιπλά σου σε 3D περιβάλλον χωρίς κανένα ρίσκο.</p>
     </div>
 
-    <p style="text-align: center; font-size: 1.05rem; color: #E8E8E8; max-width: 700px; margin: 0 auto; line-height: 1.5; font-weight: 600; letter-spacing: 0.02em;">
-      Σχεδιάζεις ανακαίνιση ή φτιάχνεις το σπίτι σου; <span style="color: var(--yellow); font-weight: 900;">ΔΕΣ ΤΟ ΒΙΝΤΕΟ</span> και μάθε πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ εξαφανίζει τον φόβο του «δεν ξέρω τι θα πάρω» πριν ξοδέψεις ούτε ένα ευρώ.
+    <p style="text-align: center; font-size: 1.05rem; color: var(--text-white); max-width: 700px; margin: 0 auto; line-height: 1.5; font-weight: 600; letter-spacing: 0.02em; font-family: 'Caladea', serif;">
+      Σχεδιάζεις ανακαίνιση ή φτιάχνεις το σπίτι σου; <span style="color: var(--brand-accent); font-weight: 700;">ΔΕΣ ΤΟ ΒΙΝΤΕΟ</span> και μάθε πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ εξαφανίζει τον φόβο του «δεν ξέρω τι θα πάρω» πριν ξοδέψεις ούτε ένα ευρώ.
     </p>
   </div>
 
@@ -499,11 +615,11 @@
       <p class="section-label">ΤΟ ΠΡΟΒΛΗΜΑ</p>
       <h2>Αν Αναγνωρίζεις Έστω Ένα από Αυτά, <span>Η Δωρεάν Μελέτη Είναι για Σένα</span></h2>
       <ul class="pain-list">
-        <li><span class="icon">❓</span> <strong>Δεν ξέρεις από πού να αρχίσεις:</strong> Η ανακαίνιση της κουζίνας ή της ντουλάπας σου φαίνεται βουνό και φοβάσαι τις λάθος αποφάσεις.</li>
-        <li><span class="icon">💸</span> <strong>Φοβάσαι ότι θα πληρώσεις πολλά:</strong> Έχεις ακούσει ιστορίες για κρυφές χρεώσεις, υπερτιμολογήσεις και προϋπολογισμούς που ξεφεύγουν.</li>
-        <li><span class="icon">🙈</span> <strong>Δεν μπορείς να φανταστείς το αποτέλεσμα:</strong> Φοβάσαι να δώσεις προκαταβολή σε ένα δειγματολόγιο ή ένα πρόχειρο σχέδιο στο χαρτί, χωρίς να ξέρεις πώς θα δείχνει στο χώρο σου.</li>
-        <li><span class="icon">📐</span> <strong>Ο χώρος σου έχει ιδιαιτερότητες:</strong> Δύσκολες γωνίες, περιορισμένα τετραγωνικά και φόβος ότι θα μείνει ανεκμετάλλευτο πολύτιμο storage.</li>
-        <li><span class="icon">⏳</span> <strong>Τρόμος για καθυστερήσεις:</strong> Φοβάσαι τους τεχνίτες που υπόσχονται παράδοση σε 3 εβδομάδες και τελικά εξαφανίζονται για μήνες.</li>
+        <li><span class="icon">❓</span> <div><strong>Δεν ξέρεις από πού να αρχίσεις:</strong> Η ανακαίνιση της κουζίνας ή της ντουλάπας σου φαίνεται βουνό και φοβάσαι τις λάθος αποφάσεις.</div></li>
+        <li><span class="icon">💸</span> <div><strong>Φοβάσαι ότι θα πληρώσεις πολλά:</strong> Έχεις ακούσει ιστορίες για κρυφές χρεώσεις, υπερτιμολογήσεις και προϋπολογισμούς που ξεφεύγουν.</div></li>
+        <li><span class="icon">🙈</span> <div><strong>Δεν μπορείς να φανταστείς το αποτέλεσμα:</strong> Φοβάσαι να δώσεις προκαταβολή σε ένα δειγματολόγιο ή ένα πρόχειρο σχέδιο στο χαρτί, χωρίς να ξέρεις πώς θα δείχνει στο χώρο σου.</div></li>
+        <li><span class="icon">📐</span> <div><strong>Ο χώρος σου έχει ιδιαιτερότητες:</strong> Δύσκολες γωνίες, περιορισμένα τετραγωνικά και φόβος ότι θα μείνει ανεκμετάλλευτο πολύτιμο storage.</div></li>
+        <li><span class="icon">⏳</span> <div><strong>Τρόμος για καθυστερήσεις:</strong> Φοβάσαι τους τεχνίτες που υπόσχονται παράδοση σε 3 εβδομάδες και τελικά εξαφανίζονται για μήνες.</div></li>
       </ul>
     </div>
   </section>
@@ -537,7 +653,7 @@
 
       <!-- BONUS / FEATURED VALUE -->
       <div class="bonus-box">
-        <h3>Γραπτή Εγγύηση Ημερομηνίας Παράδοσης &nbsp;<span style="color:var(--yellow);font-size:0.9rem;font-weight:700;">— Το Μοναδικό μας Πλεονέκτημα</span></h3>
+        <h3>Γραπτή Εγγύηση Ημερομηνίας Παράδοσης &nbsp;<span style="color:var(--brand-gold);font-size:0.9rem;font-weight:700;">— Το Μοναδικό μας Πλεονέκτημα</span></h3>
         <p>Αν αποφασίσεις να προχωρήσεις μαζί μας μετά τη δωρεάν μελέτη, κλειδώνεις τη γραπτή μας δέσμευση: <strong style="color:#fff;">Παραδίδουμε στην ακριβή ημερομηνία που συμφωνήσαμε, ή σου επιστρέφουμε το 10% της αξίας.</strong></p>
         <div class="results">
           <span class="result-pill">40 Χρόνια Εμπειρίας</span>
@@ -550,7 +666,7 @@
   </section>
 
   <!-- TIMELINE -->
-  <section style="background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <section style="background: var(--bg-dark-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
     <div class="container">
       <p class="section-label">Η ΔΙΑΔΙΚΑΣΙΑ</p>
       <h2>Πώς Λειτουργεί <span>Βήμα Βήμα</span></h2>
@@ -596,22 +712,22 @@
       <div class="why-grid">
         <div class="why-card">
           <div class="icon">🏭</div>
-          <h3 style="color:#fff;">Δική μας Παραγωγή</h3>
+          <h3>Δική μας Παραγωγή</h3>
           <p>Ειδικές κατασκευές επίπλων στα μέτρα σου. Χωρίς περιορισμούς τυποποίησης, χωρίς ενδιάμεσους.</p>
         </div>
         <div class="why-card">
           <div class="icon">📐</div>
-          <h3 style="color:#fff;">3D Φωτορεαλισμός</h3>
+          <h3>3D Φωτορεαλισμός</h3>
           <p>Βλέπεις ακριβώς τι αγοράζεις πριν κατασκευαστεί. Μηδέν αμφιβολία, μηδέν ρίσκο.</p>
         </div>
         <div class="why-card">
           <div class="icon">🤝</div>
-          <h3 style="color:#fff;">Συνέπεια & Επικοινωνία</h3>
+          <h3>Συνέπεια & Επικοινωνία</h3>
           <p>Συνεχής ενημέρωση κατά τη διάρκεια της κατασκευής και προσωπική φροντίδα από την οικογένεια Μακρινάκη.</p>
         </div>
         <div class="why-card">
           <div class="icon">⏱️</div>
-          <h3 style="color:#fff;">Γραπτή Εγγύηση Χρόνου</h3>
+          <h3>Γραπτή Εγγύηση Χρόνου</h3>
           <p>Δεσμευόμαστε γραπτώς για την ημερομηνία παράδοσης. Αν αργήσουμε, επιστρέφουμε το 10%.</p>
         </div>
       </div>
@@ -650,7 +766,7 @@
   </section>
 
   <!-- WHY START HERE -->
-  <section style="border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <section style="border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
     <div class="container">
       <p class="section-label">ΓΙΑΤΙ ΝΑ ΑΡΧΙΣΕΙΣ ΑΠΟ ΕΔΩ</p>
       <h2>Μηδέν <span>Κόστος</span>, Μηδέν <span>Ρίσκο</span></h2>
@@ -676,7 +792,7 @@
   </section>
 
   <!-- IS / IS NOT -->
-  <section style="background: var(--dark); border-bottom: 1px solid var(--border);">
+  <section style="background: var(--bg-dark-card); border-bottom: 1px solid var(--border-color);">
     <div class="container">
       <p class="section-label">ΔΙΑΦΑΝΕΙΑ</p>
       <h2>Τι <span>Είναι</span> και Τι <span style="color:#888;">Δεν Είναι</span></h2>
@@ -710,24 +826,24 @@
     <div class="container">
       <p class="section-label" style="text-align:center;">PORTFOLIO</p>
       <h2 style="text-align:center;margin-bottom:12px;">Κατασκευές που <span>Ξεχωρίζουν</span></h2>
-      <p style="text-align:center;color:var(--muted);margin-bottom:48px;font-size:1rem;">Κουζίνες, Ντουλάπες & Ειδικές Κατασκευές Επίπλων</p>
+      <p style="text-align:center;color:var(--text-muted);margin-bottom:48px;font-size:1rem;font-family: 'Caladea', serif;">Κουζίνες, Ντουλάπες & Ειδικές Κατασκευές Επίπλων</p>
       <div class="portfolio-grid">
-        <div class="portfolio-item">
+        <a href="#" class="portfolio-item">
           <div class="portfolio-thumb">🍳</div>
           <p class="portfolio-title">Custom Κουζίνες</p>
-        </div>
-        <div class="portfolio-item">
+        </a>
+        <a href="#" class="portfolio-item">
           <div class="portfolio-thumb">🚪</div>
           <p class="portfolio-title">Ειδικές Ντουλάπες</p>
-        </div>
-        <div class="portfolio-item">
+        </a>
+        <a href="#" class="portfolio-item">
           <div class="portfolio-thumb">🏠</div>
           <p class="portfolio-title">Ειδικές Κατασκευές</p>
-        </div>
-        <div class="portfolio-item">
+        </a>
+        <a href="#" class="portfolio-item">
           <div class="portfolio-thumb">🏢</div>
           <p class="portfolio-title">Επαγγελματικοί Χώροι</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -766,8 +882,10 @@
 
   <!-- FOOTER -->
   <footer>
-    <p><strong>ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ OE</strong> · Ειδικές Κατασκευές Επίπλων</p>
+    <img src="https://files.cdn-files-a.com/uploads/10273212/400_filter_nobg_679b2c06827de.png" alt="Makrinakis Woodconstructions Logo">
+    <p><strong>Makrinakis Woodconstructions</strong> · ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ OE</p>
     <p>© 2026 ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ OE · Όλα τα δικαιώματα διατηρούνται</p>
+    <p style="margin-top:8px;"><a href="https://www.emakrinakis.gr" target="_blank">Επισκεφθείτε την κύρια ιστοσελίδα μας →</a></p>
   </footer>
 
 </body>
