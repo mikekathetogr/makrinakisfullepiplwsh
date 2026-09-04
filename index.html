@@ -12,17 +12,16 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* ── BRAND COLOR PALETTE (From emakrinakis.gr & HTML/Image) ── */
     :root {
-      --brand-dark: #1b262c;        /* Header & Navigation Dark Blue/Charcoal */
-      --brand-accent: #0087e1;      /* Electric Blue Accent / CTA */
-      --brand-gold: #c5a059;        /* Warm Wood/Gold Tone */
-      --bg-black: #000000;          /* Deep Background */
-      --bg-dark-card: #12181b;      /* Dark Section Cards */
-      --bg-card: #1a2226;           /* Contrast Card Element */
-      --border-color: #2a363b;      /* Clean Dark Borders */
-      --text-white: #ffffff;        /* Primary Text */
-      --text-muted: #a0aab0;       /* Subtitles & Descriptions */
+      --brand-dark: #1b262c;
+      --brand-accent: #0087e1;
+      --brand-gold: #c5a059;
+      --bg-black: #000000;
+      --bg-dark-card: #12181b;
+      --bg-card: #1a2226;
+      --border-color: #2a363b;
+      --text-white: #ffffff;
+      --text-muted: #a0aab0;
       --green: #4ade80;
       --red: #f87171;
     }
@@ -44,13 +43,11 @@
       background-color: var(--bg-black) !important;
     }
 
-    /* ── TYPOGRAPHY OVERRIDES ── */
     h1, h2, h3, .brand-logo, .eyebrow, .cta-nav {
       font-family: 'Oswald', sans-serif !important;
       text-transform: uppercase;
     }
 
-    /* ── NAV (BREAKOUT TO EDGES) ── */
     nav {
       display: flex;
       align-items: center;
@@ -101,7 +98,6 @@
       transform: translateY(-1px);
     }
 
-    /* ── PROMO BANNER ── */
     .promo-banner {
       background: var(--brand-gold);
       color: var(--bg-black);
@@ -120,7 +116,6 @@
       z-index: 99;
     }
 
-    /* ── HERO ── */
     .hero {
       max-width: 900px;
       margin: 0 auto;
@@ -149,61 +144,26 @@
     }
     .hero h1 span { color: var(--brand-accent); }
 
-    /* ── VSL PLACEHOLDER ── */
     .vsl-wrap {
       max-width: 800px;
       margin: 0 auto 56px;
       padding: 0 24px;
     }
-    .vsl-placeholder {
+    .vsl-image-box {
       width: 100%;
-      aspect-ratio: 16/9;
-      background: linear-gradient(135deg, #12181b 0%, #1b262c 100%);
       border-radius: 12px;
-      border: 2px dashed var(--brand-accent);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
       box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      padding: 20px;
-      text-align: center;
       margin-bottom: 24px;
     }
-    .vsl-placeholder .play-btn {
-      width: 70px;
-      height: 70px;
-      background: var(--brand-accent);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-      box-shadow: 0 0 20px rgba(0, 135, 225, 0.6);
-    }
-    .vsl-placeholder .play-btn::after {
-      content: '';
+    .vsl-image-box img {
+      width: 100%;
+      height: auto;
       display: block;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 12px 0 12px 22px;
-      border-color: transparent transparent transparent #ffffff;
-      margin-left: 4px;
-    }
-    .vsl-placeholder h3 {
-      font-size: 1.2rem;
-      color: var(--text-white);
-      margin-bottom: 6px;
-    }
-    .vsl-placeholder p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      font-family: 'Caladea', serif;
+      object-fit: cover;
     }
 
-    /* ── SECTION WRAPPER ── */
     section { padding: 72px 24px; }
     .container { max-width: 880px; margin: 0 auto; }
     .section-label {
@@ -226,7 +186,6 @@
     h2 span { color: var(--brand-accent); }
     p.body-text { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 16px; font-family: 'Caladea', serif; }
 
-    /* ── PAIN SECTION ── */
     .pain-section { 
       background: var(--bg-dark-card); 
       border-top: 1px solid var(--border-color); 
@@ -246,7 +205,6 @@
     }
     .pain-list li .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
 
-    /* ── DELIVERABLES ── */
     .deliverables-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -259,6 +217,14 @@
       border-radius: 10px;
       padding: 28px 24px;
       position: relative;
+    }
+    .del-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border-color);
     }
     .del-card .num {
       font-family: 'Oswald', sans-serif;
@@ -280,7 +246,6 @@
     .del-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--text-white); margin-bottom: 10px; }
     .del-card p { font-size: 0.92rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
-    /* ── BONUS ── */
     .bonus-box {
       background: linear-gradient(135deg, #1b262c 0%, #12181b 100%);
       border: 2px solid var(--brand-accent);
@@ -303,7 +268,6 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* ── TIMELINE ── */
     .timeline { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
     .tl-step { display: flex; gap: 20px; position: relative; }
     .tl-step:not(:last-child)::after {
@@ -336,7 +300,6 @@
     .tl-content h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-white); margin-bottom: 4px; }
     .tl-content p { font-size: 0.92rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
-    /* ── WHY US ── */
     .why-section { 
       background: var(--bg-dark-card); 
       border-top: 1px solid var(--border-color); 
@@ -358,7 +321,6 @@
     .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-white); margin-bottom: 8px; }
     .why-card p { font-size: 0.88rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
-    /* ── SOCIAL PROOF ── */
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -378,7 +340,6 @@
     .proof-card .author { font-size: 0.85rem; color: var(--brand-accent); font-weight: 700; font-family: 'Inter', sans-serif; }
     .proof-card .company { font-size: 0.8rem; color: var(--text-muted); font-family: 'Inter', sans-serif; }
 
-    /* ── WHY START HERE ── */
     .why-start-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -402,7 +363,6 @@
     .why-start-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-white); margin-bottom: 8px; }
     .why-start-card p { font-size: 0.9rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
-    /* ── IS / IS NOT ── */
     .is-isnot-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -423,11 +383,10 @@
     .is-col ul, .isnot-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .is-col ul li, .isnot-col ul li { font-size: 0.92rem; color: var(--text-white); padding-left: 4px; font-family: 'Caladea', serif; }
 
-    /* ── PORTFOLIO ── */
     .portfolio-section { padding: 80px 0; background: var(--bg-black); }
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
+      grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
       gap: 16px;
     }
     .portfolio-item {
@@ -443,12 +402,14 @@
       background: var(--bg-dark-card);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
-      font-size: 2.2rem;
       transition: border-color 0.2s;
+    }
+    .portfolio-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .portfolio-item:hover .portfolio-thumb {
       border-color: var(--brand-accent);
@@ -462,7 +423,6 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* ── GUARANTEE ── */
     .guarantee-section { 
       text-align: center; 
       background: var(--bg-dark-card); 
@@ -482,7 +442,6 @@
     .guarantee-box h2 { font-size: 1.8rem; margin-bottom: 16px; }
     .guarantee-box p { font-size: 1rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
-    /* ── PRICING / CTA ── */
     .pricing-section { text-align: center; }
     .price-card {
       max-width: 520px;
@@ -547,7 +506,6 @@
       transform: translateY(-2px); 
     }
 
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 40px 24px;
@@ -559,7 +517,6 @@
     footer img { height: 44px; margin-bottom: 12px; object-fit: contain; }
     footer a { color: var(--brand-accent); text-decoration: none; }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 12px 20px; }
       nav .brand-logo { font-size: 1rem; }
@@ -585,7 +542,7 @@
 
   <!-- PROMO BANNER -->
   <div class="promo-banner">
-    ⚡ ΜΟΝΟ ΓΙΑ ΑΥΤΟΝ ΤΟΝ ΜΗΝΑ: ΔΩΡΕΑΝ 3D ΜΕΛΕΤΗ & ΚΟΣТОΛΟΓΗΣΗ ΧΩΡΙΣ ΚΑΜΙΑ ΔΕΣΜΕΥΣΗ! (ΠΕΡΙΟΡΙΣΜΕΝΑ ΡΑΝΤΕΒΟΥ)
+    ⚡ ΜΟΝΟ ΓΙΑ ΑΥΤΟΝ ΤΟΝ ΜΗΝΑ: ΔΩΡΕΑΝ 3D ΜΕΛΕΤΗ & ΚΟΣΤΟΛΟΓΗΣΗ ΧΩΡΙΣ ΚΑΜΙΑ ΔΕΣΜΕΥΣΗ! (ΠΕΡΙΟΡΙΣΜΕΝΑ ΡΑΝΤΕΒΟΥ)
   </div>
 
   <!-- HERO -->
@@ -596,16 +553,14 @@
     </div>
   </section>
 
-  <!-- VSL PLACEHOLDER SECTION -->
+  <!-- HERO IMAGE SECTION -->
   <div class="vsl-wrap">
-    <div class="vsl-placeholder">
-      <div class="play-btn"></div>
-      <h3>ΒΙΝΤΕΟ ΠΑΡΟΥΣΙΑΣΗΣ ΥΠΗΡΕΣΙΑΣ (VSL)</h3>
-      <p>Δες πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ σχεδιάζει και κατασκευάζει τα έπιπλά σου σε 3D περιβάλλον χωρίς κανένα ρίσκο.</p>
+    <div class="vsl-image-box">
+      <img src="586687276_18369726709092611_8946644946249129471_n.jpg" alt="Custom Επίπλωση & 3D Μελέτη - ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ">
     </div>
 
     <p style="text-align: center; font-size: 1.05rem; color: var(--text-white); max-width: 700px; margin: 0 auto; line-height: 1.5; font-weight: 600; letter-spacing: 0.02em; font-family: 'Caladea', serif;">
-      Σχεδιάζεις ανακαίνιση ή φτιάχνεις το σπίτι σου; <span style="color: var(--brand-accent); font-weight: 700;">ΔΕΣ ΤΟ ΒΙΝΤΕΟ</span> και μάθε πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ εξαφανίζει τον φόβο του «δεν ξέρω τι θα πάρω» πριν ξοδέψεις ούτε ένα ευρώ.
+      Σχεδιάζεις ανακαίνιση ή φτιάχνεις το σπίτι σου; <span style="color: var(--brand-accent); font-weight: 700;">ΔΕΣ ΤΗ ΜΕΛΕΤΗ ΜΑΣ</span> και μάθε πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ εξαφανίζει τον φόβο του «δεν ξέρω τι θα πάρω» πριν ξοδέψεις ούτε ένα ευρώ.
     </p>
   </div>
 
@@ -632,18 +587,21 @@
       <p class="body-text">Σου παραδίδουμε πλήρη εικόνα και διαφάνεια για το έργο σου, 100% Δωρεάν.</p>
       <div class="deliverables-grid">
         <div class="del-card">
+          <img src="587016296_18369952894092611_4011831885973950453_n.jpg" alt="Επιτόπου Επιμέτρηση & Μελέτη">
           <div class="num">01</div>
           <p class="del-value">ΑΞΙΑ 150€ — ΔΩΡΕΑΝ</p>
           <h3>Επιτόπου Επιμέτρηση & Μελέτη Χώρου</h3>
           <p>Έρχονται στο χώρο σου οι εξειδικευμένοι τεχνικοί μας, μετρούν με ακρίβεια χιλιοστού και αναλύουν τις ιδιαιτερότητες του χώρου σου.</p>
         </div>
         <div class="del-card">
+          <img src="586687276_18369726709092611_8946644946249129471_n.jpg" alt="3D Σχεδιασμός">
           <div class="num">02</div>
           <p class="del-value">ΑΞΙΑ 200€ — ΔΩΡΕΑΝ</p>
           <h3>Φωτορεαλιστικός 3D Σχεδιασμός</h3>
           <p>Βλέπεις την κουζίνα, τη ντουλάπα ή τις ειδικές κατασκευές σου σε 3D απεικόνιση υψηλής ανάλυσης. Βλέπεις χρώματα, υλικά και εργονομία πριν κατασκευαστεί τίποτα.</p>
         </div>
         <div class="del-card">
+          <img src="587015519_18369952939092611_1119799292881180295_n.jpg" alt="Αναλυτική Κοστολόγηση">
           <div class="num">03</div>
           <p class="del-value">ΑΞΙΑ 100€ — ΔΩΡΕΑΝ</p>
           <h3>Αναλυτική & Διαφανής Κοστολόγηση</h3>
@@ -828,21 +786,29 @@
       <h2 style="text-align:center;margin-bottom:12px;">Κατασκευές που <span>Ξεχωρίζουν</span></h2>
       <p style="text-align:center;color:var(--text-muted);margin-bottom:48px;font-size:1rem;font-family: 'Caladea', serif;">Κουζίνες, Ντουλάπες & Ειδικές Κατασκευές Επίπλων</p>
       <div class="portfolio-grid">
-        <a href="#" class="portfolio-item">
-          <div class="portfolio-thumb">🍳</div>
+        <a href="#cta" class="portfolio-item">
+          <div class="portfolio-thumb">
+            <img src="582312952_18369726718092611_252758172960683697_n.jpg" alt="Custom Κουζίνες">
+          </div>
           <p class="portfolio-title">Custom Κουζίνες</p>
         </a>
-        <a href="#" class="portfolio-item">
-          <div class="portfolio-thumb">🚪</div>
+        <a href="#cta" class="portfolio-item">
+          <div class="portfolio-thumb">
+            <img src="587015519_18369952939092611_1119799292881180295_n.jpg" alt="Ειδικές Ντουλάπες">
+          </div>
           <p class="portfolio-title">Ειδικές Ντουλάπες</p>
         </a>
-        <a href="#" class="portfolio-item">
-          <div class="portfolio-thumb">🏠</div>
+        <a href="#cta" class="portfolio-item">
+          <div class="portfolio-thumb">
+            <img src="587016296_18369952894092611_4011831885973950453_n.jpg" alt="Ειδικές Κατασκευές">
+          </div>
           <p class="portfolio-title">Ειδικές Κατασκευές</p>
         </a>
-        <a href="#" class="portfolio-item">
-          <div class="portfolio-thumb">🏢</div>
-          <p class="portfolio-title">Επαγγελματικοί Χώροι</p>
+        <a href="#cta" class="portfolio-item">
+          <div class="portfolio-thumb">
+            <img src="587814676_18369726700092611_4684562080345091605_n.jpg" alt="Έπιπλα Μπάνιου">
+          </div>
+          <p class="portfolio-title">Έπιπλα Μπάνιου & Χώρων</p>
         </a>
       </div>
     </div>
