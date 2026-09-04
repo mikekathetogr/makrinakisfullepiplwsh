@@ -149,19 +149,52 @@
       margin: 0 auto 56px;
       padding: 0 24px;
     }
-    .vsl-image-box {
+    .vsl-placeholder {
       width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #12181b 0%, #1b262c 100%);
       border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
+      border: 2px dashed var(--brand-accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+      padding: 20px;
+      text-align: center;
       margin-bottom: 24px;
     }
-    .vsl-image-box img {
-      width: 100%;
-      height: auto;
+    .vsl-placeholder .play-btn {
+      width: 70px;
+      height: 70px;
+      background: var(--brand-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      box-shadow: 0 0 20px rgba(0, 135, 225, 0.6);
+    }
+    .vsl-placeholder .play-btn::after {
+      content: '';
       display: block;
-      object-fit: cover;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 12px 0 12px 22px;
+      border-color: transparent transparent transparent #ffffff;
+      margin-left: 4px;
+    }
+    .vsl-placeholder h3 {
+      font-size: 1.2rem;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+    .vsl-placeholder p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-family: 'Caladea', serif;
     }
 
     section { padding: 72px 24px; }
@@ -218,13 +251,10 @@
       padding: 28px 24px;
       position: relative;
     }
-    .del-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 16px;
-      border: 1px solid var(--border-color);
+    .del-card .card-emoji {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      display: block;
     }
     .del-card .num {
       font-family: 'Oswald', sans-serif;
@@ -321,6 +351,46 @@
     .why-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-white); margin-bottom: 8px; }
     .why-card p { font-size: 0.88rem; color: var(--text-muted); font-family: 'Caladea', serif; }
 
+    /* REAL GALLERY SECTION */
+    .gallery-section {
+      background: var(--bg-black);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 36px;
+    }
+    .gallery-card {
+      background: var(--bg-dark-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--brand-accent);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-card-info {
+      padding: 16px;
+      text-align: center;
+    }
+    .gallery-card-info h4 {
+      font-size: 1rem;
+      color: var(--text-white);
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 0.03em;
+    }
+
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -383,10 +453,10 @@
     .is-col ul, .isnot-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .is-col ul li, .isnot-col ul li { font-size: 0.92rem; color: var(--text-white); padding-left: 4px; font-family: 'Caladea', serif; }
 
-    .portfolio-section { padding: 80px 0; background: var(--bg-black); }
+    .portfolio-section { padding: 80px 0; background: var(--bg-dark-card); border-top: 1px solid var(--border-color); }
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+      grid-template-columns: repeat( auto-fit, minmax(180px, 1fr) );
       gap: 16px;
     }
     .portfolio-item {
@@ -399,20 +469,18 @@
     .portfolio-thumb {
       width: 100%;
       aspect-ratio: 4/3;
-      background: var(--bg-dark-card);
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 8px;
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .portfolio-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      transition: border-color 0.2s, transform 0.2s;
     }
     .portfolio-item:hover .portfolio-thumb {
       border-color: var(--brand-accent);
+      transform: translateY(-2px);
     }
     .portfolio-title {
       font-size: 0.9rem;
@@ -553,14 +621,16 @@
     </div>
   </section>
 
-  <!-- HERO IMAGE SECTION -->
+  <!-- VSL PLACEHOLDER SECTION -->
   <div class="vsl-wrap">
-    <div class="vsl-image-box">
-      <img src="586687276_18369726709092611_8946644946249129471_n.jpg" alt="Custom Επίπλωση & 3D Μελέτη - ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ">
+    <div class="vsl-placeholder">
+      <div class="play-btn"></div>
+      <h3>ΒΙΝΤΕΟ ΠΑΡΟΥΣΙΑΣΗΣ ΥΠΗΡΕΣΙΑΣ (VSL)</h3>
+      <p>Δες πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ σχεδιάζει και κατασκευάζει τα έπιπλά σου σε 3D περιβάλλον χωρίς κανένα ρίσκο.</p>
     </div>
 
     <p style="text-align: center; font-size: 1.05rem; color: var(--text-white); max-width: 700px; margin: 0 auto; line-height: 1.5; font-weight: 600; letter-spacing: 0.02em; font-family: 'Caladea', serif;">
-      Σχεδιάζεις ανακαίνιση ή φτιάχνεις το σπίτι σου; <span style="color: var(--brand-accent); font-weight: 700;">ΔΕΣ ΤΗ ΜΕΛΕΤΗ ΜΑΣ</span> και μάθε πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ εξαφανίζει τον φόβο του «δεν ξέρω τι θα πάρω» πριν ξοδέψεις ούτε ένα ευρώ.
+      Σχεδιάζεις ανακαίνιση ή φτιάχνεις το σπίτι σου; <span style="color: var(--brand-accent); font-weight: 700;">ΔΕΣ ΤΟ ΒΙΝΤΕΟ</span> και μάθε πώς η ΑΦΕΣ ΜΑΚΡΥΝΑΚΗ ΟΕ εξαφανίζει τον φόβο του «δεν ξέρω τι θα πάρω» πριν ξοδέψεις ούτε ένα ευρώ.
     </p>
   </div>
 
@@ -579,7 +649,7 @@
     </div>
   </section>
 
-  <!-- DELIVERABLES -->
+  <!-- DELIVERABLES WITH EMOJIS -->
   <section>
     <div class="container">
       <p class="section-label">ΤΙ ΠΑΙΡΝΕΙΣ ΔΩΡΕΑΝ</p>
@@ -587,21 +657,21 @@
       <p class="body-text">Σου παραδίδουμε πλήρη εικόνα και διαφάνεια για το έργο σου, 100% Δωρεάν.</p>
       <div class="deliverables-grid">
         <div class="del-card">
-          <img src="587016296_18369952894092611_4011831885973950453_n.jpg" alt="Επιτόπου Επιμέτρηση & Μελέτη">
+          <span class="card-emoji">📐</span>
           <div class="num">01</div>
           <p class="del-value">ΑΞΙΑ 150€ — ΔΩΡΕΑΝ</p>
           <h3>Επιτόπου Επιμέτρηση & Μελέτη Χώρου</h3>
           <p>Έρχονται στο χώρο σου οι εξειδικευμένοι τεχνικοί μας, μετρούν με ακρίβεια χιλιοστού και αναλύουν τις ιδιαιτερότητες του χώρου σου.</p>
         </div>
         <div class="del-card">
-          <img src="586687276_18369726709092611_8946644946249129471_n.jpg" alt="3D Σχεδιασμός">
+          <span class="card-emoji">🖥️</span>
           <div class="num">02</div>
           <p class="del-value">ΑΞΙΑ 200€ — ΔΩΡΕΑΝ</p>
           <h3>Φωτορεαλιστικός 3D Σχεδιασμός</h3>
           <p>Βλέπεις την κουζίνα, τη ντουλάπα ή τις ειδικές κατασκευές σου σε 3D απεικόνιση υψηλής ανάλυσης. Βλέπεις χρώματα, υλικά και εργονομία πριν κατασκευαστεί τίποτα.</p>
         </div>
         <div class="del-card">
-          <img src="587015519_18369952939092611_1119799292881180295_n.jpg" alt="Αναλυτική Κοστολόγηση">
+          <span class="card-emoji">📋</span>
           <div class="num">03</div>
           <p class="del-value">ΑΞΙΑ 100€ — ΔΩΡΕΑΝ</p>
           <h3>Αναλυτική & Διαφανής Κοστολόγηση</h3>
@@ -618,6 +688,52 @@
           <span class="result-pill">8μελές Μόνιμο Προσωπικό</span>
           <span class="result-pill">100% Custom Κατασκευή</span>
           <span class="result-pill">5 Έτη Εγγύηση Υλικών</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLES OF ROOMS WE'VE DESIGNED (REAL GITHUB PHOTOS) -->
+  <section class="gallery-section">
+    <div class="container">
+      <p class="section-label" style="text-align:center;">ΠΑΡΑΔΕΙΓΜΑΤΑ ΧΩΡΩΝ</p>
+      <h2 style="text-align:center; margin-bottom:12px;">Δείγματα Χώρων που <span>Έχουμε Σχεδιάσει</span></h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom:40px; font-family:'Caladea', serif;">Πραγματικές κατασκευές και 3D μελέτες για κατοικίες και επαγγελματικούς χώρους</p>
+      
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="582312952_18369726718092611_252758172960683697_n.jpg" alt="Σχεδιασμός Κουζίνας & Τραπεζαρίας">
+          <div class="gallery-card-info">
+            <h4>Custom Κουζίνα & Τραπεζαρία</h4>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="586687276_18369726709092611_8946644946249129471_n.jpg" alt="Μοντέρνα Κουζίνα 3D">
+          <div class="gallery-card-info">
+            <h4>Μοντέρνος 3D Σχεδιασμός Κουζίνας</h4>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="587015519_18369952939092611_1119799292881180295_n.jpg" alt="Ειδική Κατασκευή Εισόδου">
+          <div class="gallery-card-info">
+            <h4>Ειδική Κατασκευή Εισόδου & Καθρέπτης</h4>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="587016296_18369952894092611_4011831885973950453_n.jpg" alt="Σύνθεση Καθιστικού">
+          <div class="gallery-card-info">
+            <h4>Σύνθεση Καθιστικού & Επένδυση</h4>
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <img src="587814676_18369726700092611_4684562080345091605_n.jpg" alt="Ειδικές Κατασκευές Δωματίου">
+          <div class="gallery-card-info">
+            <h4>Ειδικές Κατασκευές Δωματίου</h4>
+          </div>
         </div>
       </div>
     </div>
@@ -779,7 +895,7 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
+  <!-- PORTFOLIO WITH EMOJIS -->
   <section class="portfolio-section">
     <div class="container">
       <p class="section-label" style="text-align:center;">PORTFOLIO</p>
@@ -787,27 +903,19 @@
       <p style="text-align:center;color:var(--text-muted);margin-bottom:48px;font-size:1rem;font-family: 'Caladea', serif;">Κουζίνες, Ντουλάπες & Ειδικές Κατασκευές Επίπλων</p>
       <div class="portfolio-grid">
         <a href="#cta" class="portfolio-item">
-          <div class="portfolio-thumb">
-            <img src="582312952_18369726718092611_252758172960683697_n.jpg" alt="Custom Κουζίνες">
-          </div>
+          <div class="portfolio-thumb">🍳</div>
           <p class="portfolio-title">Custom Κουζίνες</p>
         </a>
         <a href="#cta" class="portfolio-item">
-          <div class="portfolio-thumb">
-            <img src="587015519_18369952939092611_1119799292881180295_n.jpg" alt="Ειδικές Ντουλάπες">
-          </div>
+          <div class="portfolio-thumb">🚪</div>
           <p class="portfolio-title">Ειδικές Ντουλάπες</p>
         </a>
         <a href="#cta" class="portfolio-item">
-          <div class="portfolio-thumb">
-            <img src="587016296_18369952894092611_4011831885973950453_n.jpg" alt="Ειδικές Κατασκευές">
-          </div>
+          <div class="portfolio-thumb">🏠</div>
           <p class="portfolio-title">Ειδικές Κατασκευές</p>
         </a>
         <a href="#cta" class="portfolio-item">
-          <div class="portfolio-thumb">
-            <img src="587814676_18369726700092611_4684562080345091605_n.jpg" alt="Έπιπλα Μπάνιου">
-          </div>
+          <div class="portfolio-thumb">🚿</div>
           <p class="portfolio-title">Έπιπλα Μπάνιου & Χώρων</p>
         </a>
       </div>
